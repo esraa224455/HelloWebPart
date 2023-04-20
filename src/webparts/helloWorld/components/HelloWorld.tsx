@@ -15,9 +15,6 @@ import {
 export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
   public render(): React.ReactElement<IHelloWorldProps> {
 
-
-    // export const ExpandIcon = () => {
-
     return (
       <div>
         <section>
