@@ -3,26 +3,48 @@ import styles from './HelloWorld.module.scss';
 import { IHelloWorldProps } from './IHelloWorldProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionItem,
+  AccordionPanel,
+} from "@fluentui/react-components";
+
+
+
 export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
   public render(): React.ReactElement<IHelloWorldProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName
-    } = this.props;
+
+
+    // export const ExpandIcon = () => {
 
     return (
-      <section className={`${styles.helloWorld} ${hasTeamsContext ? styles.teams : ''}`}>
-        <div className={styles.welcome}>
-          <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
-          <h2>Well done, {escape(userDisplayName)}!</h2>
-          <div>{environmentMessage}</div>
-          <div>Web part property value: <strong>{escape(description)}</strong></div>
-        </div>
-
-      </section>
+      <div>
+        <section>
+          <div data-is-scrollable >
+            <Accordion collapsible>
+              <AccordionItem value="1">
+                <AccordionHeader>Accordion Header 1</AccordionHeader>
+                <AccordionPanel>
+                  <div>Accordion Panel 1</div>
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem value="2">
+                <AccordionHeader>Accordion Header 2</AccordionHeader>
+                <AccordionPanel>
+                  <div>Accordion Panel 2</div>
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem value="3">
+                <AccordionHeader>Accordion Header 3</AccordionHeader>
+                <AccordionPanel>
+                  <div>Accordion Panel 3</div>
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section >
+      </div >
     );
   }
 }

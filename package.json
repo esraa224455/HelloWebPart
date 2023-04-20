@@ -12,6 +12,11 @@
     "test": "gulp test"
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.3.11",
+    "@amcharts/amcharts5-fonts": "^5.0.1",
+    "@amcharts/amcharts5-geodata": "^5.1.0",
+    "@fluentui/react-accordion": "^9.1.9",
+    "@fluentui/react-components": "^9.19.0",
     "@microsoft/sp-core-library": "1.16.1",
     "@microsoft/sp-lodash-subset": "1.16.1",
     "@microsoft/sp-office-ui-fabric-core": "1.16.1",
@@ -20,6 +25,7 @@
     "@pnp/graph": "^3.13.0",
     "@pnp/logging": "^3.13.0",
     "@pnp/sp": "^3.13.0",
+    "antd": "^5.4.2",
     "office-ui-fabric-react": "^7.199.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",

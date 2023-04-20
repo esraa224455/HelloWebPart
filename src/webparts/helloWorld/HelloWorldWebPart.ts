@@ -18,6 +18,7 @@ import "@pnp/sp/items/get-all";
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
 import { IODataContentType } from '@microsoft/sp-odata-types';
 
+
 export interface IHelloWorldWebPartProps {
   description: string;
 }
@@ -35,34 +36,13 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
     this._sp = getSP(this.context);
   }
 
-  public async getctypes(): Promise<void> {
-
-    const spHttpClient: SPHttpClient = this.context.spHttpClient;
-    const currentWebUrl: string = "https://t6syv.sharepoint.com/sites/contentTypeHub";
-    //GET current web info
-    spHttpClient.get(`${currentWebUrl}/_api/web/contenttypes`, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
-
-      // response.json().then((contenttypes: IODataContentType[]) => {
-      // response.json().then((contenttypes: any[]) => {
-      //   console.log(contenttypes);
-      // });
-      response.json().then((contenttypes) => {
-        console.log(contenttypes.value);
-        const count = contenttypes.value.length;
-        console.log(contenttypes.value.length);
-        for (let i = 0; i < count; i++) {
-          // console.log(contenttypes.value[i]);
-          console.log(contenttypes.value[i].Name);
-          console.log(contenttypes.value[i].Id);
-          console.log(contenttypes.value[i].Group);
-        }
-      });
-    });
-
-
-  }
   public render(): void {
-    this.getctypes();
+
+
+    console.log(this._sp.web.lists.length);
+    console.log(this._sp.web.lists.length);
+    console.log(this._sp.web.lists.length);
+    console.log(this._sp.web.lists.length);
     const element: React.ReactElement<IHelloWorldProps> = React.createElement(
       HelloWorld,
       {
@@ -80,31 +60,6 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
 
 
 
-  // private _getEnvironmentMessage(): Promise<string> {
-  //   if (!!this.context.sdks.microsoftTeams) { // running in Teams, office.com or Outlook
-  //     return this.context.sdks.microsoftTeams.teamsJs.app.getContext()
-  //       .then(context => {
-  //         let environmentMessage: string = '';
-  //         switch (context.app.host.name) {
-  //           case 'Office': // running in Office
-  //             environmentMessage = this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentOffice : strings.AppOfficeEnvironment;
-  //             break;
-  //           case 'Outlook': // running in Outlook
-  //             environmentMessage = this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentOutlook : strings.AppOutlookEnvironment;
-  //             break;
-  //           case 'Teams': // running in Teams
-  //             environmentMessage = this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentTeams : strings.AppTeamsTabEnvironment;
-  //             break;
-  //           default:
-  //             throw new Error('Unknown host');
-  //         }
-
-  //         return environmentMessage;
-  //       });
-  //   }
-
-  //   return Promise.resolve(this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentSharePoint : strings.AppSharePointEnvironment);
-  // }
 
   protected onThemeChanged(currentTheme: IReadonlyTheme | undefined): void {
     if (!currentTheme) {
